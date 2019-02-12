@@ -45,8 +45,9 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Livecodestream <i class="icon-feed"></i></a></i>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -69,7 +70,7 @@
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
             <h1 class="mb-5">Zero hassle, no addons or software needed. Start broadcasting in seconds</h1>
-             <button id="live_button" class="btn btn-outline btn-xl js-scroll-trigger">GO LIVE!</button>
+            <button id="live_button" class="btn btn-outline btn-xl js-scroll-trigger">GO LIVE!</button>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -79,7 +80,8 @@
               <div class="screen">
                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                 <!-- <img src="img/demo-screen-1.jpg" class="img-fluid" alt=""> -->
-                <video width="100%" id="screen_cast_video" controls autoplay muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+                <video width="100%" id="screen_cast_video" controls autoplay muted
+                  poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
                 </video>
               </div>
               <div class="button">
@@ -109,26 +111,30 @@
       <div class="row text-center text-lg-left">
         <div class="col-lg-3 col-md-4 col-6">
           <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            <video width="100%" id="remote_video" autoplay controls muted
+              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
               <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg" type="video/ogg">
             </video>
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
           <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            <video width="100%" id="remote_video" autoplay controls muted
+              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
             </video>
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
           <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            <video width="100%" id="remote_video" autoplay controls muted
+              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
             </video>
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
           <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            <video width="100%" id="remote_video" autoplay controls muted
+              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
             </video>
           </a>
         </div>
@@ -177,6 +183,14 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/new-age.min.js"></script>
+
+  <!-- stream id -->
+  <script>
+    var streamId = Date.now();
+    if (window.location.hash.replace('#', '').length != 0) {
+      streamId = window.location.hash.replace('#', '');
+    }
+  </script>
 
   <!-- Livecoding stream logic for viewers -->
   <script src="js/viewer.js"></script>

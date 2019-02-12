@@ -1,4 +1,4 @@
-var streamId = "example";//window.location.hash.replace('#', '');
+// var streamId = "example";//window.location.hash.replace('#', '');
 
 var mimeCodec = 'video/webm; codecs="opus,vp8"';
 var gun = Gun('https://gunjs.herokuapp.com/gun');

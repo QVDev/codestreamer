@@ -21,11 +21,6 @@ var sourceBuffer;
 
 var reader = new FileReader();
 
-var streamId = "example";//Date.now();
-if (window.location.hash.replace('#', '').length != 0) {
-    streamId = window.location.hash.replace('#', '');
-}
-
 function initStream() {
     console.log(streamId);
     // switchButton = document.getElementById("switch_screen_button")
