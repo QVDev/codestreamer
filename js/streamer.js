@@ -158,7 +158,7 @@ function startRecording() {
         screenCastVideo.srcObject = mixer.getMixedStream();
         mediaRecorder.mimeType = mimeCodec;
         mediaRecorder.ondataavailable = onBlobAvailable;
-        mediaRecorder.start(500);
+        mediaRecorder.start(450);
     }
 }
 
