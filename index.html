@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Livecodestream</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/new-age.min.css" rel="stylesheet">
+
+  <!-- GunDB.js for streaming -->
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <script src="js/lib/radix.js"></script>
+  <script src="js/lib/radisk.js"></script>
+  <script src="js/lib/store.js"></script>
+  <script src="js/lib/rindexed.js"></script>
+
+  <!-- Webrtc for recording -->
+  <script src="https://www.webrtc-experiment.com/MediaStreamRecorder.js"> </script>
+  <script src="https://cdn.webrtc-experiment.com/MultiStreamsMixer.min.js"></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Livecodestream <i class="icon-feed"></i></a></i>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#streamers">Streamers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">Zero hassle, no addons or software needed. Start broadcasting in seconds</h1>
+             <button id="live_button" class="btn btn-outline btn-xl js-scroll-trigger">GO LIVE!</button>
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+
+            <div class="device">
+              <div class="screen">
+                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                <!-- <img src="img/demo-screen-1.jpg" class="img-fluid" alt=""> -->
+                <video width="100%" id="screen_cast_video" controls autoplay muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+                </video>
+              </div>
+              <div class="button">
+                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="download bg-primary text-center" id="streamers">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Discover live coding streams</h2>
+          <p>Watch other coders code</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="row text-center text-lg-left">
+        <div class="col-lg-3 col-md-4 col-6">
+          <a href="javascript:;" class="d-block mb-4 h-100">
+            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+              <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg" type="video/ogg">
+            </video>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+          <a href="javascript:;" class="d-block mb-4 h-100">
+            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            </video>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+          <a href="javascript:;" class="d-block mb-4 h-100">
+            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            </video>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+          <a href="javascript:;" class="d-block mb-4 h-100">
+            <video width="100%" id="remote_video" autoplay controls muted poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+            </video>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>We
+        <i class="fas fa-heart"></i>
+        new streamers</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; Live code stream 2019. All Rights Reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/new-age.min.js"></script>
+
+  <!-- Livecoding stream logic for viewers -->
+  <script src="js/viewer.js"></script>
+
+  <!-- Livecoding stream logic for streamers -->
+  <script src="js/streamer.js"></script>
+  <script>initStream();</script>
+
+</body>
+
+</html>
