@@ -248,7 +248,8 @@ function ack(ack) {
         localStorage.clear();
         console.log(ack);
     } else {
-        console.log(ack.err)
+        console.log(ack)
+        localStorage.clear();
     }
 }
 
