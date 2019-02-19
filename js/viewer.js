@@ -19,6 +19,10 @@ console.log(streamId);
 function startLoading() {
     URL.revokeObjectURL(remoteVideo.src);
     gunDB.get('stream/' + streamId).on(function (data) {
+        sourceBuffer.abort();
+        if (sourceBuffer.timestampOffset > 600) {
+            sourceBuffer.remove(0, (sourceBuffer.timestampOffset - 600));
+        }
         if (data.name.startsWith("GkXf") && (!remoteVideo.paused || remoteVideo.played.length == 0)) {
             var t0 = performance.now();
             addToSourceBuffer(data.name);
