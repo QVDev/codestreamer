@@ -16,8 +16,10 @@ var listening = false;
 var mediaRecorder;
 var mimeCodec = 'video/webm; codecs="opus,vp8"';
 
-var mediaSource = new MediaSource();
-var sourceBuffer;
+localStorage.clear();
+var opt = {};
+opt.store = RindexedDB(opt);
+var gunDB = Gun('https://gunjs.herokuapp.com/gun', opt);
 
 var reader = new FileReader();
 
@@ -195,7 +197,7 @@ function onBlobAvailable(blob) {
             new Uint8Array(arrayBuffer)
                 .reduce((data, byte) => data + String.fromCharCode(byte), '')
         );
-        writeToGun(base64String);
+        writeToGun(base64String.toString());
 
         var t1 = performance.now();
         console.log("FETCH   to doSomething took " + (t1 - t0) + " milliseconds.");
@@ -238,13 +240,15 @@ function onBlobAvailableImproved(blob) {
 }
 
 function writeToGun(base64data) {
-    gun.get('stream/' + streamId).put({ name: base64data }, ack);
+    gunDB.get('stream/' + streamId).put({ name: base64data }, ack);
 }
 
 function ack(ack) {
     if (ack.ok != 1 && ack.err != "Error: No ACK received yet.") {
         localStorage.clear();
         console.log(ack);
+    } else {
+        console.log(ack.err)
     }
 }
 

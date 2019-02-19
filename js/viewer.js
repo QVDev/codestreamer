@@ -1,7 +1,12 @@
 // var streamId = "example";//window.location.hash.replace('#', '');
 
 var mimeCodec = 'video/webm; codecs="opus,vp8"';
-var gun = Gun('https://gunjs.herokuapp.com/gun');
+// var gun = Gun('https://gunjs.herokuapp.com/gun');
+localStorage.clear();
+var opt = {};
+opt.store = RindexedDB(opt);
+var gunDB = Gun('https://gunjs.herokuapp.com/gun', opt);
+
 remoteVideo = document.getElementById("remote_video");
 var mediaSource = new MediaSource;
 var sourceBuffer;
@@ -13,8 +18,8 @@ localStorage.clear();
 console.log(streamId);
 function startLoading() {
     URL.revokeObjectURL(remoteVideo.src);
-    gun.get('stream/' + streamId).on(function (data) {
-        if (!remoteVideo.paused || remoteVideo.played.length == 0) {
+    gunDB.get('stream/' + streamId).on(function (data) {
+        if (data.name.startsWith("GkXf") && (!remoteVideo.paused || remoteVideo.played.length == 0)) {
             var t0 = performance.now();
             addToSourceBuffer(data.name);
             var t1 = performance.now();
@@ -42,6 +47,7 @@ function str2ab(str) {
 }
 
 function sourceOpen(_) {
+    console.log("Open");
     var mediaSource = this;
     sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
     sourceBuffer.mode = 'sequence';
