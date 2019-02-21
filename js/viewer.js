@@ -1,6 +1,6 @@
 // var streamId = "example";//window.location.hash.replace('#', '');
 
-var mimeCodec = 'video/webm; codecs="opus,vp8"';
+
 // var gun = Gun('https://gunjs.herokuapp.com/gun');
 localStorage.clear();
 var opt = {};
@@ -12,6 +12,7 @@ var mediaSource = new MediaSource;
 var sourceBuffer;
 
 remoteVideo.src = URL.createObjectURL(mediaSource);
+remoteVideo.preload = false;
 mediaSource.addEventListener('sourceopen', sourceOpen);
 localStorage.clear();
 
@@ -19,16 +20,21 @@ console.log(streamId);
 function startLoading() {
     URL.revokeObjectURL(remoteVideo.src);
     gunDB.get('stream/' + streamId).on(function (data) {
-        sourceBuffer.abort();
-        if (sourceBuffer.timestampOffset > 600) {
-            sourceBuffer.remove(0, (sourceBuffer.timestampOffset - 600));
-        }
-        if (data.name.startsWith("GkXf") && (!remoteVideo.paused || remoteVideo.played.length == 0)) {
-            var t0 = performance.now();
-            addToSourceBuffer(data.name);
-            var t1 = performance.now();
-            console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
-            localStorage.clear();
+        console.log(data.name.substring(0, 4));
+        if (data.name.startsWith("GkXf")) {            
+            sourceBuffer.abort();
+            console.log("OFFSET" + sourceBuffer.timestampOffset);
+            console.log("BUFFERED" + sourceBuffer.buffered.length);
+            if (sourceBuffer.timestampOffset > RECORD_TIME) {                
+                sourceBuffer.remove(0, (sourceBuffer.timestampOffset - RECORD_TIME));
+            }
+            if (!remoteVideo.paused || remoteVideo.played.length == 0) {
+                var t0 = performance.now();
+                addToSourceBuffer(data.name);
+                var t1 = performance.now();
+                console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
+                localStorage.clear();
+            }
         }
     });
 }

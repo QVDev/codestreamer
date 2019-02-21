@@ -38,6 +38,19 @@
   <script src="https://cdn.jsdelivr.net/npm/multistreamsmixer@1.0.7/MultiStreamsMixer.min.js"></script>
 
 </head>
+<!-- init -->
+<script>
+  //Codec
+  let mimeCodec = 'video/webm; codecs="opus,vp8"';
+
+  //Record time
+  let RECORD_TIME = 800;
+  //stream id
+  var streamId = Date.now();
+  if (window.location.hash.replace('#', '').length != 0) {
+    streamId = window.location.hash.replace('#', '');
+  }
+</script>
 
 <body id="page-top">
 
@@ -113,28 +126,6 @@
           <a href="javascript:;" class="d-block mb-4 h-100">
             <video width="100%" id="remote_video" autoplay controls muted
               poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-              <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg" type="video/ogg">
-            </video>
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6">
-          <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted
-              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-            </video>
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6">
-          <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted
-              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-            </video>
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6">
-          <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted
-              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
             </video>
           </a>
         </div>
@@ -183,14 +174,6 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/new-age.min.js"></script>
-
-  <!-- stream id -->
-  <script>
-    var streamId = Date.now();
-    if (window.location.hash.replace('#', '').length != 0) {
-      streamId = window.location.hash.replace('#', '');
-    }
-  </script>
 
   <!-- Livecoding stream logic for viewers -->
   <script src="js/viewer.js"></script>
