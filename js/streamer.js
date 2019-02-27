@@ -161,15 +161,21 @@ function onBlobAvailable(blob) {
 }
 
 function writeToGun(base64data) {
-    gunDB.get('stream/' + streamId).put({ name: base64data }, ack);
+    // var stream = gunDB.get(streamId).put({name: base64data}, ack);
+    // stream.get('streams').set(stream);
+
+    var user = gunDB.get(streamId).put({name: base64data, id: streamId}, ack);
+    gunDB.get('streams').set(user);
+
+    // gunDB.get('stream/' + streamId).put({ name: base64data }, ack);
 }
 
 function ack(ack) {
     if (ack.ok != 1 && ack.err != "Error: No ACK received yet.") {
         localStorage.clear();
-        console.log(ack);
+        // console.log(ack);
     } else {
-        console.log(ack)
+        // console.log(ack)
         localStorage.clear();
     }
 }

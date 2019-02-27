@@ -7,7 +7,7 @@ var opt = {};
 opt.store = RindexedDB(opt);
 var gunDB = Gun('https://gunjs.herokuapp.com/gun', opt);
 
-remoteVideo = document.getElementById("remote_video");
+remoteVideo = document.getElementById(streamId);
 var mediaSource = new MediaSource;
 var sourceBuffer;
 
@@ -19,13 +19,13 @@ localStorage.clear();
 console.log(streamId);
 function startLoading() {
     URL.revokeObjectURL(remoteVideo.src);
-    gunDB.get('stream/' + streamId).on(function (data) {
+    gunDB.get(streamId).on(function (data) {
         console.log(data.name.substring(0, 4));
-        if (data.name.startsWith("GkXf")) {            
+        if (data.name.startsWith("GkXf")) {
             sourceBuffer.abort();
             console.log("OFFSET" + sourceBuffer.timestampOffset);
             console.log("BUFFERED" + sourceBuffer.buffered.length);
-            if (sourceBuffer.timestampOffset > RECORD_TIME) {                
+            if (sourceBuffer.timestampOffset > RECORD_TIME) {
                 sourceBuffer.remove(0, (sourceBuffer.timestampOffset - RECORD_TIME));
             }
             if (!remoteVideo.paused || remoteVideo.played.length == 0) {

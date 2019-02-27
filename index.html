@@ -121,15 +121,7 @@
 
   <section class="features">
     <div class="container">
-      <div class="row text-center text-lg-left">
-        <div class="col-lg-3 col-md-4 col-6">
-          <a href="javascript:;" class="d-block mb-4 h-100">
-            <video width="100%" id="remote_video" autoplay controls muted
-              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-            </video>
-          </a>
-        </div>
-      </div>
+      <div class="carousel"></div>
     </div>
   </section>
 
@@ -181,6 +173,16 @@
   <!-- Livecoding stream logic for streamers -->
   <script src="js/streamer.js"></script>
   <script>initStream();</script>
+
+  <!-- Slick carousel -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <!-- DB interface -->
+  <script src="js/data.js"></script>
+  <script>showStreams();</script>
 
 </body>
 
