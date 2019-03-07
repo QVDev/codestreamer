@@ -7,7 +7,7 @@ var opt = {};
 opt.store = RindexedDB(opt);
 var gunDB = Gun('https://gunjs.herokuapp.com/gun', opt);
 
-remoteVideo = document.getElementById(streamId);
+remoteVideo = document.getElementById('remote_video');
 var mediaSource = new MediaSource;
 var sourceBuffer;
 

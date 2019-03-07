@@ -20,14 +20,12 @@
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
-  <!-- Plugin CSS -->
-  <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-
   <!-- Custom styles for this template -->
-  <link href="css/new-age.min.css" rel="stylesheet">
+  <link href="css/new-age.css" rel="stylesheet">
 
   <!-- GunDB.js for streaming -->
   <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gun/lib/unset.js"></script>
   <script src="js/lib/radix.js"></script>
   <script src="js/lib/radisk.js"></script>
   <script src="js/lib/store.js"></script>
@@ -42,7 +40,8 @@
 <script>
   //Codec
   let mimeCodec = 'video/webm; codecs="opus,vp8"';
-
+  //DB records
+  let DB_RECORD = 'streams'
   //Record time
   let RECORD_TIME = 800;
   //stream id
@@ -66,12 +65,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#streamers">Streamers</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -80,65 +79,76 @@
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
+
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
             <h1 class="mb-5">Zero hassle, no addons or software needed. Start broadcasting in seconds</h1>
             <button id="live_button" class="btn btn-outline btn-xl js-scroll-trigger">GO LIVE!</button>
           </div>
         </div>
+
         <div class="col-lg-5 my-auto">
           <div class="device-container">
-
             <div class="device">
               <div class="screen">
-                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                <!-- <img src="img/demo-screen-1.jpg" class="img-fluid" alt=""> -->
                 <video width="100%" id="screen_cast_video" controls autoplay muted
                   poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
                 </video>
               </div>
               <div class="button">
-                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
               </div>
             </div>
           </div>
-
         </div>
+
+        <section class="text-center" >
+            <div class="container">
+              <div class="row">
+                
+                  
+                    Featured
+                    <div class="my-auto">
+                      <div class="container">
+            
+                        <div class="swiper-container">
+                          <!-- Additional required wrapper -->
+                          <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><video width="100%" id="screen_cast_video" controls autoplay muted
+                              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+                            </video></div>
+                            <div class="swiper-slide"><video width="100%" id="screen_cast_video" controls autoplay muted
+                              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+                            </video></div>
+                            <div class="swiper-slide"><video width="100%" id="screen_cast_video" controls autoplay muted
+                              poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+                            </video></div>
+                          </div>
+                          <!-- If we need pagination -->
+                          <div class="swiper-pagination"></div>
+            
+                          <!-- If we need navigation buttons -->
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+            
+                          <!-- If we need scrollbar -->
+                          <div class="swiper-scrollbar"></div>
+                        </div>
+            
+                      </div>
+                    </div>
+      
+                </div>
+              </div>
+            </div>
+          </section>
+
+
       </div>
     </div>
   </header>
 
-  <section class="download bg-primary text-center" id="streamers">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <h2 class="section-heading">Discover live coding streams</h2>
-          <p>Watch other coders code</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="features">
-    <div class="container">
-      <div class="carousel"></div>
-    </div>
-  </section>
-
-  <section class="contact bg-primary" id="contact">
-    <div class="container">
-      <h2>We
-        <i class="fas fa-heart"></i>
-        new streamers</h2>
-      <ul class="list-inline list-social">
-        <li class="list-inline-item social-twitter">
-          <a href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
 
   <footer>
     <div class="container">
@@ -174,11 +184,12 @@
   <script src="js/streamer.js"></script>
   <script>initStream();</script>
 
-  <!-- Slick carousel -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <!-- carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
 
   <!-- DB interface -->
   <script src="js/data.js"></script>

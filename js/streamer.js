@@ -120,6 +120,7 @@ function startRecording() {
         mediaRecorder.mimeType = mimeCodec;
         mediaRecorder.ondataavailable = onBlobAvailable;
         mediaRecorder.start(RECORD_TIME);
+        document.getElementsByTagName('canvas')[0].hidden = true
     }
 }
 
@@ -162,12 +163,18 @@ function onBlobAvailable(blob) {
 
 function writeToGun(base64data) {
     // var stream = gunDB.get(streamId).put({name: base64data}, ack);
-    // stream.get('streams').set(stream);
-
-    var user = gunDB.get(streamId).put({name: base64data, id: streamId}, ack);
-    gunDB.get('streams').set(user);
+    // stream.get(DB_RECORD).set(stream);
+    let lastUpdate = new Date().getTime();
+    var user = gunDB.get(streamId).put({name: base64data, id: streamId, timestamp: lastUpdate}, ack);
+    gunDB.get(DB_RECORD).set(user);
 
     // gunDB.get('stream/' + streamId).put({ name: base64data }, ack);
+}
+
+function removeFromGun() {
+    var user = gunDB.get(streamId)
+    gunDB.get(DB_RECORD).unset(user);
+    user.put(null)
 }
 
 function ack(ack) {
@@ -181,6 +188,7 @@ function ack(ack) {
 }
 
 function stopRecording() {
+    removeFromGun();
     mediaRecorder.stop();
     screenStream.getTracks().forEach(function (track) {
         track.stop();
