@@ -35,7 +35,8 @@ function showStreams() {
   console.log("Add streams dynamic");
   gunDB.get(DB_RECORD).map().once(function (stream, id) {
     if (checkStreamValidity(stream, id)) {
-      let vid = '<video width="100%" id="' + id + '"autoplay muted onerror="failed(event)"' +
+      let vid = '<div class="notify-badge-online">Online</div>' + 
+        '<video width="100%" id="' + id + '"autoplay muted onerror="failed(event)"' +
         'poster="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">' +
         '>' +
         '<source src="data:video/webm;base64,' + stream.name + '" onerror="failed(event)">' +
