@@ -26,6 +26,7 @@ function startLoading() {
             console.log("BUFFERED" + sourceBuffer.buffered.length);
             if (sourceBuffer.timestampOffset > RECORD_TIME) {
                 sourceBuffer.remove(0, (sourceBuffer.timestampOffset - RECORD_TIME));
+                localStorage.clear();
             }
             if (!remoteVideo.paused || remoteVideo.played.length == 0) {
                 var t0 = performance.now();

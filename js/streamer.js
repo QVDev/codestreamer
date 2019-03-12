@@ -167,11 +167,12 @@ function writeToGun(base64data) {
     let lastUpdate = new Date().getTime();
     var user = gunDB.get(streamId).put({name: base64data, id: streamId, timestamp: lastUpdate}, ack);
     gunDB.get(DB_RECORD).set(user);
-
+    localStorage.clear();
     // gunDB.get('stream/' + streamId).put({ name: base64data }, ack);
 }
 
 function removeFromGun() {
+    localStorage.clear();
     var user = gunDB.get(streamId)
     gunDB.get(DB_RECORD).unset(user);
     user.put(null)
