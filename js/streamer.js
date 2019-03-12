@@ -16,9 +16,9 @@ var listening = false;
 var mediaRecorder;
 
 localStorage.clear();
-var opt = {};
-opt.store = RindexedDB(opt);
-var gunDB = Gun('https://gunjs.herokuapp.com/gun', opt);
+var peers = ['https://livecodegun.herokuapp.com/gun'];
+var opt = {peers:peers, localStorage:false, radisk: false};
+var gunDB = Gun(opt);
 
 var reader = new FileReader();
 

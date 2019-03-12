@@ -1,11 +1,10 @@
 // var streamId = "example";//window.location.hash.replace('#', '');
 
 
-// var gun = Gun('https://gunjs.herokuapp.com/gun');
 localStorage.clear();
-var opt = {};
-opt.store = RindexedDB(opt);
-var gunDB = Gun('https://gunjs.herokuapp.com/gun', opt);
+var peers = ['https://livecodegun.herokuapp.com/gun'];
+var opt = {peers:peers, localStorage:false, radisk: false};
+var gunDB = Gun(opt);
 
 remoteVideo = document.getElementById('remote_video');
 var mediaSource = new MediaSource;
