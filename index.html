@@ -32,7 +32,7 @@
   <script src="js/lib/rindexed.js"></script>
 
   <!-- Webrtc for recording -->
-  <script src="https://www.webrtc-experiment.com/MediaStreamRecorder.js"> </script>
+  <script src="js/MediaStreamRecorder.js"> </script>
   <script src="https://cdn.jsdelivr.net/npm/multistreamsmixer@1.0.7/MultiStreamsMixer.min.js"></script>
 
 </head>
@@ -43,7 +43,7 @@
   //DB records
   let DB_RECORD = 'streams'
   //Record time
-  let RECORD_TIME = 800;
+  let RECORD_TIME = 500;
   //stream id
   var streamId = Date.now();
   if (window.location.hash.replace('#', '').length != 0) {

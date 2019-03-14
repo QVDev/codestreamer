@@ -20,14 +20,15 @@ function startLoading() {
     URL.revokeObjectURL(remoteVideo.src);
     gunDB.get(streamId).on(function (data) {
         console.log(data.name.substring(0, 4));
-        if (data.name.startsWith("GkXf")) {
-            sourceBuffer.abort();
-            console.log("OFFSET" + sourceBuffer.timestampOffset);
-            console.log("BUFFERED" + sourceBuffer.buffered.length);
-            if (sourceBuffer.timestampOffset > RECORD_TIME) {
-                sourceBuffer.remove(0, (sourceBuffer.timestampOffset - RECORD_TIME));
-                localStorage.clear();
-            }
+        //Optimiation still needed?
+        // if (data.name.startsWith("GkXf")) {
+            // sourceBuffer.abort();
+            // console.log("OFFSET" + sourceBuffer.timestampOffset);
+            // console.log("BUFFERED" + sourceBuffer.buffered.length);
+            // if (sourceBuffer.timestampOffset > RECORD_TIME) {
+            //     sourceBuffer.remove(0, (sourceBuffer.timestampOffset - RECORD_TIME));
+            //     localStorage.clear();
+            // }
             if (!remoteVideo.paused || remoteVideo.played.length == 0) {
                 var t0 = performance.now();
                 addToSourceBuffer(data.name);
@@ -35,7 +36,7 @@ function startLoading() {
                 console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
                 localStorage.clear();
             }
-        }
+        // }
     });
 }
 
