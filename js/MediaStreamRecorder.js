@@ -56,7 +56,7 @@ function MediaStreamRecorder(mediaStream) {
 
         var self = this;
         mediaRecorder.ondataavailable = function(data) {
-            mediaRecorder.blobs.push(data);
+            // mediaRecorder.blobs.push(data);
             self.ondataavailable(data);
         };
         mediaRecorder.onstop = this.onstop;
@@ -1141,7 +1141,7 @@ function MediaRecorderWrapper(mediaStream) {
             // how to fix FF-corrupt-webm issues?
             // should we leave this?          e.data.size < 26800
             if (!e.data || !e.data.size || firedOnDataAvailableOnce) {
-                console.log("Quit because::" + e.data.size);
+                // console.log("Quit because::" + e.data.size);
                 return;
             }
 

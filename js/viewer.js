@@ -11,7 +11,6 @@ var mediaSource = new MediaSource;
 var sourceBuffer;
 
 remoteVideo.src = URL.createObjectURL(mediaSource);
-remoteVideo.preload = false;
 mediaSource.addEventListener('sourceopen', sourceOpen);
 localStorage.clear();
 
@@ -19,7 +18,7 @@ console.log(streamId);
 function startLoading() {
     URL.revokeObjectURL(remoteVideo.src);
     gunDB.get(streamId).on(function (data) {
-        console.log(data.name.substring(0, 4));
+        // console.log(data.name.substring(0, 4));
         //Optimiation still needed?
         // if (data.name.startsWith("GkXf")) {
             // sourceBuffer.abort();
@@ -33,7 +32,7 @@ function startLoading() {
                 var t0 = performance.now();
                 addToSourceBuffer(data.name);
                 var t1 = performance.now();
-                console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
+                // console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
                 localStorage.clear();
             }
         // }

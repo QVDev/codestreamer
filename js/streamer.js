@@ -153,7 +153,7 @@ function onBlobAvailable(blob) {
         writeToGun(base64String.toString());
 
         var t1 = performance.now();
-        console.log("FETCH   to doSomething took " + (t1 - t0) + " milliseconds.");
+        // console.log("FETCH   to doSomething took " + (t1 - t0) + " milliseconds.");
     }).catch(function (err) {
         console.log(err);
     });
