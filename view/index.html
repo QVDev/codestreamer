@@ -21,12 +21,20 @@
             data-logo="../images/logo.png" data-logo-height="25" data-logo-target="https://metroui.org.ua/v4/"
             data-controls-hide="1000" data-volume=".0" data-show-loop="false" data-show-stop="false"
             data-show-play="false" data-show-pause="false" data-show-stream="false"></video>
+
+        <form>
+            <div class="form-group">
+                <input id="message" type="text" data-role="input" data-prepend="Enter message:">
+                <button class="button secondary" onclick="sentMessage()">Send message</button>
+            </div>
+        </form>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/viewer.js"></script>
-
+    <script src="../js/metadata.js"></script>
 </body>
 
 </html>

@@ -7,6 +7,7 @@ const STREAM_ID = location.hash.replace("#", "");
 
 //Change to correct id
 document.getElementById("user_stream").innerHTML = "You're watching <b>#" + STREAM_ID + "'s</b> stream"
+document.getElementById("record_video").id = STREAM_ID;
 
 
 //Configure GUN to pass to streamer
