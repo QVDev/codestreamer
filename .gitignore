@@ -62,3 +62,6 @@ typings/
 
 # vscode
 .vscode/
+
+# Ignore Mac DS_Store files
+.DS_Store
