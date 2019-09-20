@@ -4,7 +4,11 @@ const MIMETYPE_AUDIO_ONLY = 'video/webm; codecs="opus"';
 
 const MIME_TYPE_USE = MIMETYPE_VIDEO_AUDIO;//Change to the correct one once you change
 const STREAM_ID = getID();
+showId();
 
+function showId() {
+    document.getElementById("user_stream").innerHTML = "<b>#" + STREAM_ID + "</b>"
+}
 
 function getID() {
     if (location.hash == "") {
