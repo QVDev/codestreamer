@@ -7,7 +7,11 @@ const STREAM_ID = getID();
 
 
 function getID() {
-    return Math.random().toString(36).substring(2, 8);
+    if (location.hash == "") {
+        return Math.random().toString(36).substring(2, 8);
+    } else {
+        return location.hash.replace("#", "");
+    }
 }
 //Config for camera recorder
 const CAMERA_OPTIONS = {
