@@ -22,7 +22,7 @@ function receiveData() {
             return
         }
 
-        var tab = data.streamId;
+        var tab = document.getElementsByTagName("video")[0].id
 
         /* EVENT HANDLER */
         if (data.text) {
