@@ -6,7 +6,8 @@ const MIME_TYPE_USE = MIMETYPE_VIDEO_AUDIO;//Change to the correct one once you 
 const STREAM_ID = location.hash.replace("#", "");
 
 //Change to correct id
-document.getElementById("record_video").id = STREAM_ID;
+document.getElementById("user_stream").innerHTML = "You're watching <b>#" + STREAM_ID + "'s</b> stream"
+
 
 //Configure GUN to pass to streamer
 var peers = ['https://gunmeetingserver.herokuapp.com/gun'];
