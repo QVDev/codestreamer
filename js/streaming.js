@@ -3,11 +3,17 @@ const MIMETYPE_VIDEO_ONLY = 'video/webm; codecs="vp8"';
 const MIMETYPE_AUDIO_ONLY = 'video/webm; codecs="opus"';
 
 const MIME_TYPE_USE = MIMETYPE_VIDEO_AUDIO;//Change to the correct one once you change
-const STREAM_ID = "remote"//Probably need a dynamic one make sure your video id is the same for the viewer
+const STREAM_ID = getID();
 
+
+function getID() {
+    return Math.random().toString(36).substring(2, 8);
+}
 //Config for camera recorder
 const CAMERA_OPTIONS = {
     video: {
+        width: 1280,
+        height: 720,
         facingMode: "environment",
         frameRate: 24
     }, audio: true

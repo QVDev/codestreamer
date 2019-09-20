@@ -31,3 +31,7 @@ buttonLive.type = "button";
 buttonLive.onclick = function () { gunRecorder.record() };
 
 document.getElementsByClassName("controls")[0].appendChild(buttonLive);// Append to controls
+
+function share() {
+    window.open(location.href + "view/#" + STREAM_ID, '_blank');
+}
