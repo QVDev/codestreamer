@@ -1,18 +1,36 @@
-<!doctype html>
-<title>Site Maintenance</title>
-<style>
-  body { text-align: center; padding: 150px; }
-  h1 { font-size: 50px; }
-  body { font: 20px Helvetica, sans-serif; color: #333; }
-  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-  a { color: #dc8100; text-decoration: none; }
-  a:hover { color: #333; text-decoration: none; }
-</style>
+<!DOCTYPE html>
+<html>
 
-<article>
-    <h1>We&rsquo;ll be back soon!</h1>
-    <div>
-        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. We&rsquo;ll be back online shortly!</p>
-        <p>&mdash; The Team</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ivecodestream</title>
+    <link rel="shortcut icon" href="images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunRecorder.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunStreamer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunViewer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/mediabuffer.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <H1 align="center">Start streaming without OBS</H1>
+        <H2 align="center">stream your livecoding session directly from your browser</H2>
+        <video id="record_video" data-role="video" data-src="https://metroui.org.ua/res/oceans.mp4"
+            data-logo="images/logo.png" data-logo-height="25" data-logo-target="https://metroui.org.ua/v4/"
+            data-controls-hide="1000" data-volume=".0" data-show-loop="false" data-show-stop="false"
+            data-show-play="false" data-show-pause="false" data-show-stream="false"></video>
     </div>
-</article>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/streaming.js"></script>
+    <script>gunRecorder.startScreenCapture()</script>
+
+</body>
+
+</html>
