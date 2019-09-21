@@ -10,12 +10,25 @@
 </head>
 
 <body style="background:#303030;color:#fff;">
-    <div id="content"></div>
+    <div id="content">
+        microphone =
+        <input type="button" value="On" id="onoff" onclick="onoff();">
+    </div>
 </body>
 
 
 
 <script>
+    function onoff() {
+        currentvalue = document.getElementById('onoff').value;
+        if (currentvalue == "Off") {
+            document.getElementById("onoff").value = "On";
+            recorderStream.getAudioTracks()[0].enabled = true;
+        } else {
+            document.getElementById("onoff").value = "Off";
+            recorderStream.getAudioTracks()[0].enabled = false;
+        }
+    }
 
     AudioApi.startToRecord({
         onNewPayload: (buff) => {
