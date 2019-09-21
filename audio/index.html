@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Audio Record</title>
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="audio.js"></script>
+    <script src="audioData.js"></script>
+</head>
+
+<body style="background:#303030;color:#fff;">
+    <div id="content"></div>
+</body>
+
+
+
+<script>
+
+    AudioApi.startToRecord({
+        onNewPayload: (buff) => {
+            // AudioApi.playStream(buff)
+            sentControlData({ audio: buff });
+        }
+    })
+
+</script>
