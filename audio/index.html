@@ -20,28 +20,27 @@
 </body> -->
 
 <body style="background:#303030;color:#fff;">
-    <aside class="sidebar pos-absolute z-2" id="sb4"
-        data-shift=".shifted-content-2" data-static-shift=".shifted-content-2" data-static="md">
-        <ul class="sidebar-menu">
-            <li class="group-title">Voice rooms</li>
+    <aside class="sidebar pos-absolute z-2" id="sb4" data-shift=".shifted-content-2"
+        data-static-shift=".shifted-content-2" data-static="md">
+        <ul class="sidebar-menu" style="background:#303030;color:#fff;">
+            <li class="group-title" style="color:#fff;">Voice rooms</li>
             <li><a><span class="mif-users icon"></span>Team A</a></li>
             <li><a><span class="mif-tools icon"></span>Team B</a></li>
             <li><a><span class="mif-injection icon"></span>Team C</a></li>
             <li class="divider"></li>
-            <!-- <li><a>Item 4</a></li>
-            <li><a>Item 5</a></li>
-            <li class="group-title">Group two</li>
-            <li><a>Item 6</a></li>
-            <li><a>Item 7</a></li> -->
+            <li class="group-title" style="color:#fff;">Microphone</li>
+            <li><a><input type="image" src="images/mic-off.png" id="onoff" onclick="onoff();"></a>
+            </li>
+            <li class="group-title" style="color:#fff;">Red is unmuted / white is muted</li>
         </ul>
     </aside>
     <div class="shifted-content-2 h-100 p-ab">
-        <div class="h-100 p-4">
+        <!-- <div class="h-100 p-4">
             <H1 align="center">Click mic to mute/unmute</H1>
             <input type="image" src="images/mic-off.png" id="onoff" onclick="onoff();"
                 style="margin:auto;display:block;">
             <H3 align="center">Red is sending data white is muted</H3>
-        </div>
+        </div> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
