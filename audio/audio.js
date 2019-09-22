@@ -19,17 +19,16 @@ let AudioApi = (() => {
         channels = 1,
         BUFF_SIZE = 2048,
         samplingRate = 48000,
-        frameSize = 4800
+        frameSize = 9600
 
 
     var session = {
         audio: {
-            mandatory: {
-                googEchoCancellation: false,
-                googAutoGainControl: false,
-                googNoiseSuppression: false,
-                googHighpassFilter: false
-            }
+            echoCancellation: false,
+            autoGainControl: false,
+            noiseSuppression: false,
+            sampleRate: 48000,
+            channelCount: 1
         },
         video: false
     };
