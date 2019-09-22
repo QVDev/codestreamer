@@ -23,7 +23,14 @@ let AudioApi = (() => {
 
 
     var session = {
-        audio: true,
+        audio: {
+            mandatory: {
+                googEchoCancellation: false,
+                googAutoGainControl: false,
+                googNoiseSuppression: false,
+                googHighpassFilter: false
+            }
+        },
         video: false
     };
 
