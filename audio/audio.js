@@ -17,20 +17,20 @@ let AudioApi = (() => {
 
     let
         channels = 1,
-        BUFF_SIZE = 2048,
+        BUFF_SIZE = 4096,
         samplingRate = 48000,
-        frameSize = 9600
+        frameSize = 4800
 
 
     var session = {
-        audio: {
-            echoCancellation: false,
-            autoGainControl: false,
-            noiseSuppression: false,
-            sampleRate: 22050,
-            channelCount: 1
-        },
-        video: false
+        audio: true //{
+        // echoCancellation: false,
+        // autoGainControl: false,
+        // noiseSuppression: false,
+        // sampleRate: 48000,
+        // channelCount: 1
+        // },
+        , video: false
     };
 
     let
