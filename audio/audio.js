@@ -5,7 +5,7 @@ STREAM_ID = Math.random().toString(36).substring(2, 8);
 var peers = ['https://gunmeetingserver.herokuapp.com/gun'];
 var opt = { peers: peers, localStorage: false, radisk: false };
 var gunDB = Gun(opt);
-let recorderStream;
+let recorderStream
 
 let AudioApi = (() => {
 
@@ -18,7 +18,7 @@ let AudioApi = (() => {
     let
         channels = 1,
         BUFF_SIZE = 2048,
-        samplingRate = 8000,
+        samplingRate = 48000,
         frameSize = 4800
 
 
