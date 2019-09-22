@@ -27,7 +27,7 @@ let AudioApi = (() => {
             echoCancellation: false,
             autoGainControl: false,
             noiseSuppression: false,
-            sampleRate: 48000,
+            sampleRate: 22050,
             channelCount: 1
         },
         video: false
