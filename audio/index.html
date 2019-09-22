@@ -11,8 +11,7 @@
 
 <body style="background:#303030;color:#fff;">
     <div id="content">
-        microphone =
-        <input type="button" value="On" id="onoff" onclick="onoff();">
+        <input type="image" src="images/mic-on.png" id="onoff" onclick="onoff();" style="margin:auto;display:block;">
     </div>
 </body>
 
@@ -20,12 +19,14 @@
 
 <script>
     function onoff() {
-        currentvalue = document.getElementById('onoff').value;
-        if (currentvalue == "Off") {
-            document.getElementById("onoff").value = "On";
+        currentvalue = document.getElementById('onoff').src;
+        if (currentvalue.endsWith("images/mic-off.png")) {
+            // document.getElementById("onoff").value = "On";
+            document.getElementById("onoff").src = "images/mic-on.png"
             recorderStream.getAudioTracks()[0].enabled = true;
         } else {
-            document.getElementById("onoff").value = "Off";
+            // document.getElementById("onoff").value = "Off";
+            document.getElementById("onoff").src = "images/mic-off.png"
             recorderStream.getAudioTracks()[0].enabled = false;
         }
     }
