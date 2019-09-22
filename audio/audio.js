@@ -33,6 +33,7 @@ let AudioApi = (() => {
 
     function initializeRecorder(stream) {
         recorderStream = stream;
+        recorderStream.getAudioTracks()[0].enabled = false;
         var audioContext = window.AudioContext;
         recorder_context = new audioContext();
         var audioInput = recorder_context.createMediaStreamSource(stream);
