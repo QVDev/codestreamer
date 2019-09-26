@@ -1,4 +1,5 @@
 const DB_RECORD_META = 'gunmeeting_metadata'
+const CUE_SHOW_TIME = 4;
 let USER_METADATA = 'metadata_' + STREAM_ID;
 
 function sentMessage() {
@@ -45,7 +46,7 @@ function SETCLUE(cue, element, hide) {
     var time = parseInt(video.currentTime);
     track.mode = "showing";
     // track.addCue(new VTTCue(0, 99999, cue|| "..." ));
-    track.addCue(new VTTCue(time, time + 2, cue || "..."));
+    track.addCue(new VTTCue(time, time + CUE_SHOW_TIME, cue || "..."));
 };
 
 function HIDETRACKS(element) {
