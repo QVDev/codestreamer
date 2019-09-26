@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
     <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/hearts.css">
 
     <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunRecorder.js"></script>
@@ -25,14 +26,14 @@
             data-logo="images/logo.png" data-logo-height="25" data-logo-target="https://metroui.org.ua/v4/"
             data-volume=".0" data-show-loop="false" data-show-stop="false" data-show-play="false"
             data-show-pause="false" data-show-stream="false"></video>
-
+        <div id="hearts_container"></div>
         <div class="form-group">
             <input id="message" type="text" data-history="false" data-role="input" data-prepend="Enter message:">
             <button class="button secondary" onclick="sentMessage()">Send message</button>
+            <button class="button yellow" onclick="sentLove()">Send love</button>
         </div>
     </div>
 
-    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
     <script src="js/app.js"></script>
@@ -40,6 +41,7 @@
     <script>gunRecorder.startScreenCapture()</script>
     <script src="js/metadata.js"></script>
     <script src="../js/stats.js"></script>
+    <script src="js/hearts.js"></script>
 </body>
 
 </html>

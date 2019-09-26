@@ -1,0 +1,33 @@
+  .heart-outer {
+    display: block;
+    position: absolute;
+    left: -30px;
+    top: -15x;
+  }
+  .heart-outer .heart-inner {
+    display: inline-block;
+    position: relative;
+    background-color: pink;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .heart-outer .heart-inner:before, .heart-outer .heart-inner:after {
+    content: "";
+    position: absolute;
+    background-color: inherit;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  .heart-outer .heart-inner:before {
+    top: -15px;
+    left: 0;
+  }
+  .heart-outer .heart-inner:after {
+    left: 15px;
+    top: 0;
+  }
+  
