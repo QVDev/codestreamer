@@ -29,6 +29,10 @@ function receiveData() {
         if (data.text) {
             SETCLUE(data.text, tab, 1);
         }
+        
+        if (data.like) {
+            sentLove();
+        }
     });
 }
 
