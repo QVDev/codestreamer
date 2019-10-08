@@ -7,37 +7,41 @@
     <title>ivecodestream</title>
     <link rel="shortcut icon" href="../images/icons/favicon.ico">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
-    <link rel="stylesheet" type="text/css" href="../streamer/css/base.css">
-    <link rel="stylesheet" type="text/css" href="../streamer/css/hearts.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/hearts.css">
 
     <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunViewer.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/mediabuffer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunRecorder.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunStreamer.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <H1 id="user_stream" style="display:inline"></H1>
-        <H1 id="stream_count" style="display:inline"></H1>
+        <H2 align="center">Start streaming without OBS</H2>
+        <H2 align="center">stream your livecoding session directly from your browser</H2>
+        <H3 id="user_stream" style="display:inline"></H3>
+        <H3 id="stream_count" style="display:inline"></H3>
         <video id="record_video" data-role="video"
             data-poster="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/fe186655756437.5992117fb6ee1.gif"
             data-logo="../images/logo.png" data-logo-height="25" data-logo-target="https://metroui.org.ua/v4/"
             data-volume=".0" data-show-loop="false" data-show-stop="false" data-show-play="false"
             data-show-pause="false" data-show-stream="false"></video>
+
         <div class="form-group">
             <input id="message" type="text" data-history="false" data-role="input" data-prepend="Enter message:">
             <button class="button secondary" onclick="sentMessage()">Send message</button>
             <button class="button yellow" onclick="sentControlData({ text: '', like: true });">Send love</button>
         </div>
-
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/viewer.js"></script>
-    <script src="../streamer/js/metadata.js"></script>
-    <script src="../streamer/js/stats.js"></script>
-    <script src="../streamer/js/hearts.js"></script>
+    <script src="js/streaming.js"></script>
+    <script>gunRecorder.startScreenCapture()</script>
+    <script src="js/metadata.js"></script>
+    <script src="../js/stats.js"></script>
+    <script src="js/hearts.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,21 @@
+Just implemented send like periscope style so try the new button {send love}
+
+Derived from pencode https://codepen.io/rainner/pen/JJXOmQ
+
+Be right back audio silence!!
+
+//TODO: Seperate the hearts from the text :) Know hearts arrive when sending text
+//TODO: Only push one heart at the time
+//TODO: Change send love button maybe overlay in video?
+//TODO: Hearts only to sending stream seperation like the cue
+//TODO: Record session
+//TODO: List of streamers
+//TODO: Collect promotion sites to anounce upcoming stream
+//TODO: Stale text and Image option for streamer and description
+//TODO: Add faq
+
+
+
+material
+https://dev.to/catriname/why-watch-coders-stream-live-ned
+https://github.com/bnb/awesome-developer-streams

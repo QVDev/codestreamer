@@ -1,0 +1,37 @@
+{
+  "name": "wbs",
+  "version": "1.1.2",
+  "description": "Broadcasting Software for the Web",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RationalCoding/Web-Broadcasting-Software.git"
+  },
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "standard --fix src/* && tape test/*.js",
+    "build": "browserify src/index.js -t browserify-css -s WBS -o dist/wbs.js",
+    "watch": "watchify src/index.js -t browserify-css -s WBS -o dist/wbs.js"
+  },
+  "author": "Thomas Mullen",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify-css": "^0.10.0",
+    "standard": "^8.6.0",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "cuid": "^2.1.1",
+    "debounce": "^1.0.0",
+    "enumerate-devices": "^1.1.1",
+    "getusermedia": "^2.0.1",
+    "hyperscript": "^2.0.2",
+    "inherits": "^2.0.3",
+    "interactjs": "^1.2.8",
+    "vex-js": "^3.1.1",
+    "video-stream-merger": "^3.2.0",
+    "volume-meter": "^2.0.1"
+  }
+}

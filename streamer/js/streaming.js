@@ -57,6 +57,9 @@ var onRecordStateChange = function (state) {
             break;
         default:
             recordButton.innerText = "Press here to go live";
+            if (recordedChunks.length > 0) {
+                downloadRecording();
+            }
             break;
     }
 }
@@ -64,12 +67,34 @@ var onRecordStateChange = function (state) {
 var recorder_config = {
     mimeType: MIME_TYPE_USE,
     video_id: "record_video",//Video html element id
-    onDataAvailable: gunStreamer.onDataAvailable,//MediaRecorder data available callback
+    onDataAvailable: onDataAvailable,//MediaRecorder data available callback
     onRecordStateChange: onRecordStateChange,//Callback for recording state
     recordInterval: 800,//Interval of the recorder higher will increase delay but more buffering. Lower will not do much. Due limitiation of webm
     cameraOptions: CAMERA_OPTIONS,//The camera and screencast options see constant
     debug: false//For debug logs
 }
+
+var recordedChunks = [];
+
+function onDataAvailable(data) {
+    recordedChunks.push(data.data);
+    gunStreamer.onDataAvailable(data);
+}
+
+function downloadRecording() {
+    var blob = new Blob(recordedChunks, {
+        type: 'video/webm'
+    });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = 'display: none';
+    a.href = url;
+    a.download = 'test.webm';
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
 
 //Init the recorder
 const gunRecorder = new GunRecorder(recorder_config);

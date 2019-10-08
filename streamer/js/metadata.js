@@ -4,7 +4,7 @@ let USER_METADATA = 'metadata_' + STREAM_ID;
 
 function sentMessage() {
     var input = document.getElementById("message");
-    sentControlData({ text: input.value });
+    sentControlData({ text: input.value, like: false });
     input.value = "";
 }
 
@@ -29,8 +29,8 @@ function receiveData() {
         if (data.text) {
             SETCLUE(data.text, tab, 1);
         }
-        
-        if (data.like) {
+
+        if (data.like && data.streamId == STREAM_ID) {
             sentLove();
         }
     });
