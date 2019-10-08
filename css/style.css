@@ -1,10 +1,12 @@
-.testDiv {
-    width: 100%;
-    height: 100%;
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Lato", sans-serif
 }
 
-html,
-    body {
-    padding: 0;
-    margin: 0;
+.w3-bar,h1,button {
+    font-family: "Montserrat", sans-serif
+}
+
+.fa-pied-piper,.fa-pied-piper-alt {
+    font-size:200px;
+    color:green;
 }

@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ivecodestream</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.8/js/GunStreamer.js"></script>
+  <link rel="shortcut icon" href="../images/icons/favicon.ico">
+</head>
+
+<body>
+  <!-- <h1 id="intro" style="font-family: Arial; text-align: center;">Welcome to broadcast studio
+    <br>click anywhere to start</h1> -->
+  <div class="testDiv"></div>
+</body>
+<script src="dist/wbs.js"></script>
+<script src="src/lib/recorder.js"></script>
+<script src="src/lib/streamer.js"></script>
+<script>
+  // window.addEventListener('click', () => {
+  //   var intro = document.querySelector('#intro')
+  //   if (!intro) return
+  //   intro.parentElement.removeChild(intro)
+
+    var wbs = new WBS('div')
+
+    wbs.on('stream', function (stream) {
+      console.log("received stream " + stream)
+      startRecording(stream);
+    })
+    wbs.on('stopstream', function () {
+      stopRecording();
+      console.log("Stopped streaming");
+    })
+  // })
+</script>
+
+</html>
