@@ -12845,6 +12845,12 @@ function WBS (element, opts) {
   
   var audioContext = new AudioContext()
 
+  window.addEventListener('click', () => {
+    audioContext.resume().then(() => {
+      console.log('Playback resumed successfully');
+    });
+  });
+
   mixer.setAudioContext(audioContext)
   opts.output = opts.output || {
     width: 400 * 3,
