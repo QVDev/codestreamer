@@ -17,30 +17,34 @@ window.addEventListener("unload", function () {
 });
 
 function initChart() {
-    var ctx = document.getElementById('analytics');
-    analyticsChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                data: [],
-                label: "Visitors",
-                borderColor: "#3e95cd",
-                fill: false
-            }]
-        },
-        options: {
-            responsive: false
-        }
-    });
+    if (typeof VIEW_ONLY !== 'undefined') {
+        var ctx = document.getElementById('analytics');
+        analyticsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    data: [],
+                    label: "Visitors",
+                    borderColor: "#3e95cd",
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: false
+            }
+        });
+    }
 }
 
 function addData(data) {
-    analyticsChart.data.labels.push(getDateTime());
-    analyticsChart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
-    analyticsChart.update();
+    if (typeof VIEW_ONLY !== 'undefined') {
+        analyticsChart.data.labels.push(getDateTime());
+        analyticsChart.data.datasets.forEach((dataset) => {
+            dataset.data.push(data);
+        });
+        analyticsChart.update();
+    }
 }
 
 function initDatabase() {
@@ -74,7 +78,7 @@ function removeVisitor() {
 function getDateTime() {
     var d = new Date();
     var dateTime = d.toLocaleTimeString();
-    return dateTime + " " + getPathName();
+    return dateTime;
 }
 
 function getPathName() {
