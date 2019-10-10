@@ -1,4 +1,4 @@
-const ANALYTICSROOT = "analytics_livecode_stream";
+const ANALYTICSROOT = "analytics_livecode";
 var analyticsChart;
 var gun;
 
@@ -59,7 +59,7 @@ function addData(data) {
             if (dataset.label == data.path) {
                 dataset.data.push(data.count);
             } else if (dataset.label !== "Visitors") {
-                dataset.data.push(dataset.data[dataset.data.length-1])
+                dataset.data.push(dataset.data[dataset.data.length - 1])
             }
         });
         analyticsChart.update();
@@ -109,4 +109,17 @@ function constructData(data) {
         path: getPathName(),
         count: data
     }
+}
+
+function reset() {
+    analyticsChart.data.datasets.forEach((dataset) => {
+        if (dataset.label !== "Visitors") {
+            gun.get(ANALYTICSROOT).get(location.origin).put(
+                {
+                    path: dataset.label,
+                    count: 0
+                }
+            )
+        }
+    });
 }
