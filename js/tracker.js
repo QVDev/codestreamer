@@ -89,8 +89,10 @@ function addVisitor() {
 
 function removeVisitor() {
     gun.get(ANALYTICSROOT).get(location.origin).once(function (data, key) {
-        data.count -= 1;
-        gun.get(ANALYTICSROOT).get(location.origin).put(constructData(data.count))
+        if (data.count > 0) {
+            data.count -= 1;
+            gun.get(ANALYTICSROOT).get(location.origin).put(constructData(data.count))
+        }
     })
 }
 
