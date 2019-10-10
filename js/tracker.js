@@ -1,4 +1,4 @@
-const ANALYTICSROOT = "analytics";
+const ANALYTICSROOT = "analytics_livecode_stream";
 var analyticsChart;
 var gun;
 
@@ -26,9 +26,20 @@ function initChart() {
                 datasets: [{
                     data: [],
                     label: "Visitors",
-                    borderColor: "#3e95cd",
+                    borderColor: "#ff6384",
                     fill: false
-                }]
+                }, {
+                    data: [],
+                    label: "/",
+                    borderColor: "#cc65fe",
+                    fill: false
+                }, {
+                    data: [],
+                    label: "/studio/",
+                    borderColor: "#ffce56",
+                    fill: false
+                }
+                ]
             },
             options: {
                 responsive: false
@@ -41,7 +52,15 @@ function addData(data) {
     if (typeof VIEW_ONLY !== 'undefined') {
         analyticsChart.data.labels.push(getDateTime());
         analyticsChart.data.datasets.forEach((dataset) => {
-            dataset.data.push(data);
+            if (dataset.label == "Visitors") {
+                dataset.data.push(data.count);
+            }
+
+            if (dataset.label == data.path) {
+                dataset.data.push(data.count);
+            } else if (dataset.label !== "Visitors") {
+                dataset.data.push(dataset.data[dataset.data.length-1])
+            }
         });
         analyticsChart.update();
     }
@@ -53,7 +72,7 @@ function initDatabase() {
     gun = Gun(opt);
 
     gun.get(ANALYTICSROOT).get(location.origin).not(function (key) {
-        gun.get(ANALYTICSROOT).get(location.origin).put(0)
+        gun.get(ANALYTICSROOT).get(location.origin).put(constructData(0))
     });
 
     gun.get(ANALYTICSROOT).get(location.origin).on(function (data, key) {
@@ -63,15 +82,15 @@ function initDatabase() {
 
 function addVisitor() {
     gun.get(ANALYTICSROOT).get(location.origin).once(function (data, key) {
-        data += 1;
-        gun.get(ANALYTICSROOT).get(location.origin).put(data);
+        data.count += 1;
+        gun.get(ANALYTICSROOT).get(location.origin).put(constructData(data.count));
     })
 }
 
 function removeVisitor() {
     gun.get(ANALYTICSROOT).get(location.origin).once(function (data, key) {
-        data -= 1;
-        gun.get(ANALYTICSROOT).get(location.origin).put(data)
+        data.count -= 1;
+        gun.get(ANALYTICSROOT).get(location.origin).put(constructData(data.count))
     })
 }
 
@@ -82,5 +101,12 @@ function getDateTime() {
 }
 
 function getPathName() {
-    return location.pathname.substring(1, location.pathname.indexOf('.'));
+    return location.pathname;
+}
+
+function constructData(data) {
+    return {
+        path: getPathName(),
+        count: data
+    }
 }
