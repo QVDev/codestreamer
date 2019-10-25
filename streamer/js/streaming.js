@@ -28,7 +28,7 @@ const CAMERA_OPTIONS = {
 }
 
 //Configure GUN to pass to streamer
-var peers = ['https://gunmeetingserver.herokuapp.com/gun'];
+var peers = ['https://livecodestream-us.herokuapp.com/gun','https://livecodestream-eu.herokuapp.com/gun'];
 var opt = { peers: peers, localStorage: false, radisk: false };
 var gunDB = Gun(opt);
 

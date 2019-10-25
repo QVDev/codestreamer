@@ -11,7 +11,7 @@ document.getElementById("record_video").id = STREAM_ID;
 
 
 //Configure GUN to pass to streamer
-var peers = ['https://gunmeetingserver.herokuapp.com/gun'];
+var peers = ['https://livecodestream-us.herokuapp.com/gun','https://livecodestream-eu.herokuapp.com/gun'];
 var opt = { peers: peers, localStorage: false, radisk: false };
 var gunDB = Gun(opt);
 
@@ -26,7 +26,7 @@ var viewer_config = {
 var gunViewer = new GunViewer(viewer_config);
 
 //Configure GUN to pass to streamer
-var peers = ['https://gunmeetingserver.herokuapp.com/gun'];
+var peers = ['https://livecodestream-us.herokuapp.com/gun','https://livecodestream-eu.herokuapp.com/gun'];
 var opt = { peers: peers, localStorage: false, radisk: false };
 var gunDB = Gun(opt);
 

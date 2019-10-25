@@ -67,7 +67,7 @@ function addData(data) {
 }
 
 function initDatabase() {
-    var peers = ['https://gunmeetingserver.herokuapp.com/gun'];
+    var peers = ['https://livecodestream-us.herokuapp.com/gun','https://livecodestream-eu.herokuapp.com/gun'];
     var opt = { peers: peers, localStorage: false, radisk: false };
     gun = Gun(opt);
 
